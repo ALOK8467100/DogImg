@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="index.js" ></script>
+</head>
+<body>
+
+  <h1>CLick on button and change the dog images</h1>
+
+  <p>
+    <button>Click to new Dog images</button><br>
+    <img src="" alt="a" style="width: 400px; height: 400px" >
+    
+  </p>
+
+
+  <script>
+
+    const images = document.querySelector('img');
+    const button = document.querySelector('button');
+
+    button.addEventListener('click', () => {
+      fetch('https://dog.ceo/api/breeds/image/random')
+      .then(response => response.json())
+      .then((json) => {
+        console.log(json.message)
+        images.src = json.message;
+      })
+    })
+
+
+
+  </script>
+  
+</body>
+</html>
